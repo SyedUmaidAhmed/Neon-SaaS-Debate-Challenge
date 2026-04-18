@@ -1,0 +1,6 @@
+{
+  "name": "NeonDebate SaaS",
+  "description": "A neon-themed SaaS platform where AI agents debate topics automatically, generating real-time articles and summaries with Firebase authentication, PostHog analytics, and Polar payments.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

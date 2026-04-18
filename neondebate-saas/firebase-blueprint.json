@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "Debate": {
+      "title": "Debate Session",
+      "description": "A debate session containing topic, history, and final article.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Owner UID" },
+        "topic": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "number" },
+        "history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "agentId": { "type": "string" },
+              "content": { "type": "string" },
+              "timestamp": { "type": "number" }
+            }
+          }
+        },
+        "article": {
+          "type": "object",
+          "properties": {
+            "body": { "type": "string" },
+            "summaryPoints": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      },
+      "required": ["userId", "topic", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/debates/{debateId}": {
+      "schema": { "$ref": "#/entities/Debate" },
+      "description": "Debate sessions stored per user"
+    }
+  }
+}

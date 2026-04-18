@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+New&family=Georgia&family=Inter:wght@400;600;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-glass-bg: #030508;
+  --color-glass-panel: rgba(18, 22, 28, 0.75);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --color-glass-border-light: rgba(255, 255, 255, 0.05);
+  
+  --color-glass-blue: #00f3ff;
+  --color-glass-pink: #ff00ea;
+  --color-glass-green: #39ff14;
+  
+  --color-text-main: #e0e6ed;
+  --color-text-dim: #94a3b8;
+  
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Courier New', Courier, monospace;
+  --font-serif: 'Georgia', serif;
+}
+
+body {
+  background-color: var(--color-glass-bg);
+  background-image: radial-gradient(circle at 50% 50%, #0a101a 0%, #030508 100%);
+  color: var(--color-text-main);
+  font-family: var(--font-sans);
+}
+
+.glass-panel {
+  background: var(--color-glass-panel);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border);
+  border-radius: 12px;
+}
+
+.glass-panel-light {
+  border: 1px solid var(--color-glass-border-light);
+}
+
+.bubble-base {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+}
+
+.btn-premium {
+  background: linear-gradient(45deg, var(--color-glass-pink), #8e00ff);
+  color: white;
+  border: none;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Custom Scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-glass-blue);
+}
+
+@keyframes text-flicker {
+  0% { opacity: 1; }
+  10% { opacity: 0.8; }
+  11% { opacity: 1; }
+  50% { opacity: 1; }
+  51% { opacity: 0.3; }
+  53% { opacity: 1; text-shadow: 0 0 5px rgba(255,255,255,0.8); }
+  54% { opacity: 0.7; }
+  56% { opacity: 1; text-shadow: none; }
+  100% { opacity: 1; }
+}
+
+.animate-flicker {
+  animation: text-flicker 1.5s infinite ease-in-out;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
